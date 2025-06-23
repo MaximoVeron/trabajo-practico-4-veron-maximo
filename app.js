@@ -1,15 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import sequelize from './config/database.js';
-import character from './models/chaaracters.model.js';
+import sequelize from './src/config/database.js';
+import character from './src/models/characters.model.js';
 
 import {
     getAllCharacters,
     getCharacterById,
     createCharacter,
-    updateCharacter
+    updateCharacter,
     deleteCharacter
-} from './controllers/character.controllers.js';
+} from './src/controllers/character.controllers.js';
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;

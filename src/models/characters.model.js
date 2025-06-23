@@ -8,19 +8,27 @@ const character = sequelize.define('character',{
     },
     name:{
         type: DataTypes.STRING,
+        allowNull: false,
     },
     race:{
         type:DataTypes.STRING,
+        allowNull: false,
     },
     gender:{
         type: DataTypes.STRING,
+        allowNull: false,
     },
     age:{
         type:DataTypes.INTEGER,
     },
     description:{
         type:DataTypes.TEXT,
-    }
+    },
+    ki:{
+        type: DataTypes.INTEGER,
+        defaultValue: 0,
+        allowNull: false,
+    },
 
 },{
     tableName: 'characters',
