@@ -1,0 +1,32 @@
+{
+  "name": "trabajo-practico-4-veron-maximo",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --exec app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaximoVeron/trabajo-practico-4-veron-maximo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaximoVeron/trabajo-practico-4-veron-maximo/issues"
+  },
+  "homepage": "https://github.com/MaximoVeron/trabajo-practico-4-veron-maximo#readme",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "sequelize": "^6.37.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
