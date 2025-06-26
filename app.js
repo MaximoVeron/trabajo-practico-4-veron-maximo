@@ -1,42 +1,21 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import sequelize from './src/config/database.js';
-import character from './src/models/characters.model.js';
-
-import {
-    getAllCharacters,
-    getCharacterById,
-    createCharacter,
-    updateCharacter,
-    deleteCharacter
-} from './src/controllers/character.controllers.js';
+import path from 'path';
+import { fileURLToPath } from 'url';   
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+import { initDB } from "./src/config/database.js";
+import router from "./src/routes/character.routes.js";
 
 dotenv.config();
-const PORT = process.env.PORT || 3000;
 
 const app = express();
 app.use(express.json());
+app.use("/api/character", router);
+const PORT = process.env.PORT || 4000;
 
-app.get('/',(req,res)=>{
-    res.send('funciona');
-});
-
-app.get('/characters', getAllCharacters);
-app.get('/characters/:id', getCharacterById);
-app.post('/characters', createCharacter);   
-app.put('/characters/:id', updateCharacter);
-app.delete('/characters/:id', deleteCharacter);
-
-try {
-    await sequelize.authenticate();
-    console.log('Conexion exitosa.');
-    await character.sync();
-    console.log('tabla characters sincronizada.');
-} catch (error) {
-    console.error('Error al conectar a la base de datos:', error);
-}
-
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto ${PORT}`);
+initDB().then(() => {
+    app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://localhost:${PORT}`);
+    });
 });
 
